@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>LENIMENTUS</title>
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="Lenimentus, фантастика, книги, Новерия, Делайн, Фарбер">
+    <meta name="description" content="A sci-fi book promo page">
+    <meta name="author" content="Эл Фарбер">
+    <link rel="icon" href="%sveltekit.assets%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    %sveltekit.head%
+</head>
+<body data-sveltekit-preload-data="hover">
+<div class="main">%sveltekit.body%</div>
+</body>
+</html>
+
+<style>
+    :root {
+        --tablet-width: 768px;
+        --desktop-width: 1200px;
+        --main-background: #0A0E1A;
+        --background-blue: #98E1E9;
+        --background-green: #CDE998;
+        --background-pink: #E998E3;
+
+        --top-left-line: 0;
+        --bottom-left-line: 100%;
+
+        --top-right-line: 80vh;
+        --bottom-right-line: 20vh;
+    }
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: calc(100vh);
+        padding: 0;
+        margin: 0;
+        background-color: var(--main-background);
+        /* Hide scrollbar in IE and Edge */
+        -ms-overflow-style: none;
+        /*Customize scrollbar in Firefox */
+        scrollbar-width: thin;
+        scrollbar-color: rgb(10 88 239 / 25%) rgb(41 114 97 / 15%);
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .main {
+        width: 60%;
+        position: relative;
+        margin: 0 auto;
+        padding-top: 3vh;
+        overflow-x: visible;
+        overflow-y: clip;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+    }
+
+    .main::before {
+        content: "";
+        position: absolute;
+        bottom: var(--bottom-left-line);
+        top: var(--top-left-line);
+        width: 1px;
+        left: -1px;
+        height: 30%;
+        background-color: var(--main-background);
+        -webkit-transition: all 1.5s ease-in-out;
+        -moz-transition: all 1.5s ease-in-out;
+        -ms-transition: all 1.5s ease-in-out;
+        -o-transition: all 1.5s ease-in-out;
+        transition: top 5s ease-in-out, bottom 5s ease-in-out;
+        animation: moveleftborders 15s infinite ease;
+        z-index: 25;
+    }
+
+    .main::after {
+        content: "";
+        position: absolute;
+        top: var(--top-right-line);
+        bottom: var(--bottom-right-line);
+        right: -1px;
+        width: 1px;
+        height: 30%;
+        background-color: var(--main-background);
+        transition: top 5s ease-in-out, bottom 5s ease-in-out;
+        animation: moverightborders 15s infinite ease;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    h1, h2, h3, p {
+        margin: 0;
+    }
+
+    /* Customizing Scrollbar in Webkit (Chrome) */
+    ::-webkit-scrollbar {
+        background: rgb(41 114 97 / 15%);
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(10 88 239 / 25%);
+    }
+
+    @media (max-width: 767px) {
+        .main {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1550px) {
+        .main {
+            width: 80%;
+        }
+    }
+
+    @media (min-width: 1551px) and (max-width: 1750px) {
+        .main {
+            width: 70%;
+        }
+    }
+
+    @keyframes moveleftborders {
+        0% {
+            top: 0;
+        }
+
+        50% {
+            top: 100vh;
+        }
+
+        100% {
+            top: 0;
+        }
+    }
+
+    @keyframes moverightborders {
+        0% {
+            top: 100vh;
+        }
+
+        50% {
+            top: 0;
+        }
+
+        100% {
+            top: 100vh;
+        }
+    }
+
+</style>
