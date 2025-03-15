@@ -184,15 +184,19 @@
         }
     }
 
-    /*@media (min-width: 720px) and (max-width: 1200px) {*/
-    /*    .info_wrapper {*/
-    /*        min-height: 1000px;*/
-    /*    }*/
-    /*}*/
+    @media (max-width: 700px) {
+        .info_wrapper.quest {
+            align-items: flex-start;
+        }
+    }
 
     @media (max-width: 1270px) {
         .info_wrapper {
             padding: 15px 15px;
+        }
+
+        .info_wrapper.book .info_main {
+            flex-direction: column-reverse;
         }
 
         .quest_wrapper {
