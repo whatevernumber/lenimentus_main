@@ -20,7 +20,7 @@
 
             {#if type === 'quest'}
                 <div class="quest_wrapper">
-                    <button class="play_quest" on:click={() => window.location = 'http://89.191.225.149:8081'}>
+                    <button class="start_quest_button" on:click={() => window.location = 'http://quest.lenimentus.ru'}>
                         Начать усовершенствование
                     </button>
                 </div>
@@ -120,10 +120,10 @@
     .quest_wrapper:hover {
         transition-duration: 0.35s;
         background: url("/src/lib/img/quest_logo.png") no-repeat center,
-                    cadetblue url("/src/lib/img/de-line-3.png");
+        cadetblue url("/src/lib/img/de-line-3.png");
     }
 
-    .play_quest {
+    .start_quest_button {
         position: absolute;
         top: 85%;
         left: 20%;
@@ -140,9 +140,10 @@
         text-align: center;
         text-transform: uppercase;
         color: #1C284D;
+        cursor: pointer;
     }
 
-    .play_quest:hover {
+    .start_quest_button:hover {
         border-width: 3px;
         background-color: #E998E3;
         color: #FFFFFF;
@@ -199,7 +200,11 @@
             background-size: cover;
         }
 
-        .play_quest {
+        .quest_wrapper:hover {
+            background: center/200% url("/src/lib/img/quest_logo.png") no-repeat, url("/src/lib/img/de-line-3.png");
+        }
+
+        .start_quest_button {
             left: 4%;
         }
 
