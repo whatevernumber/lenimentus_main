@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header_author">
-        <span>L Farber</span>
+        <a href="mailto:lenimentus@protonmail.com">L Farber</a>
     </div>
     <section class="header_title">
         <h1 class="leni-h1">L E N I M E N T U S</h1>
@@ -29,8 +29,12 @@
         color: #FFFFFF;
     }
 
+    .header_title h1 {
+        font-size: 65px;
+    }
+
     @media (max-width: 767px) {
-        .header_title {
+        .header_title h1 {
             font-size: 25px;
         }
     }
