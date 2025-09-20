@@ -24,7 +24,6 @@
         padding-left: 5px;
         font-style: normal;
         font-weight: 400;
-        font-size: 65px;
         line-height: 137px;
         color: #FFFFFF;
     }
