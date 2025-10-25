@@ -1,8 +1,15 @@
 <script>
-    export let type = "book";
-</script>
+    import {fade, fly} from "svelte/transition";
 
-<section class="info">
+    export let type = "book";
+
+    const engMap = {
+        'ru': 'Начать усовершенствование',
+        'en': 'Commence improving',
+    }
+</script>
+{#key type}
+<section class="info" in:fade={ {duration: 250} }>
     <div class="info_wrapper {type}">
         <div class="info_main">
             {#if type === "book"}
@@ -14,20 +21,26 @@
                     предрешена неумолимым Усовершенствованием?
                 </p>
                 <div class="book_image">
-                    <img class="leni_cover" width="280" src="img/book-3d.png" alt="LENIMENTUS">
+                    <img class="leni_cover" src="img/book-3d.png" alt="LENIMENTUS">
                 </div>
             {/if}
 
             {#if type === 'quest'}
                 <div class="quest_wrapper">
-                    <button class="start_quest_button" on:click={() => window.location = 'http://quest.lenimentus.ru'}>
+                    <img class="quest_image" src="img/quest_logo.png">
+
+                    <button class="start_quest_button">
+                        Начать усовершенствование
+                    </button>
+
+                    <button class="begin_button glitch" on:click={() => window.location = 'http://quest.lenimentus.ru'}>
                         Начать усовершенствование
                     </button>
                 </div>
             {/if}
             {#if type === 'author'}
                 <p class="info_text">
-                    Эл Фарбер — писательница из Мурманска, выросшая на произведениях таких мастеров фантастики,
+                    Эл Фарбер — писательница и веб-разработчица из Мурманска, выросшая на произведениях таких мастеров фантастики,
                     как А. Азимов, Г. Гаррисон, Ф. Дик, Дж. Уиндем и Р. Хайнлайн.
                     Путешествия сквозь бесконечную Вселенную, тайны далёких миров и их обитателей, высокотехнологичное
                     будущее
@@ -38,23 +51,24 @@
                     LENIMENTUS — не только писательский дебют автора, но и личное внутреннее Усовершенствование.
                 </p>
                 <div class="book_image">
-                    <img class="author_photo" width="300" src="img/farber.jpg" alt="LENIMENTUS">
+                    <img class="author_photo" src="img/farber.png" alt="LENIMENTUS">
                 </div>
             {/if}
         </div>
     </div>
 </section>
+{/key}
 
 <style>
     .info {
-        padding: 0 25px;
+        width: 100%;
     }
 
     .info_wrapper {
         display: flex;
         align-items: center;
-        padding: 20px 100px;
-        height: 520px;
+        padding: 20px 50px;
+        height: 50vh;
     }
 
     .info_wrapper.book {
@@ -75,10 +89,12 @@
     }
 
     .info_wrapper.author {
-        background-color: var(--background-pink);
-        box-shadow: -1px 5px 15px 2px var(--background-pink);
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        padding: 20px 30px;
+        /*background-color: var(--background-pink);*/
+        /*box-shadow: -1px 5px 15px 2px var(--background-pink);*/
+        /*border-bottom-left-radius: 10px;*/
+        /*border-bottom-right-radius: 10px;*/
+        text-align: justify;
     }
 
     .info_text {
@@ -92,10 +108,12 @@
     }
 
     .author .info_text {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .info_main {
+        width: 100%;
+        height: 100%;
         display: flex;
         column-gap: 25px;
         align-items: center;
@@ -110,25 +128,42 @@
     }
 
     .quest_wrapper {
+        display: flex;
+        justify-content: center;
         position: relative;
         margin: auto;
-        width: 420px;
-        height: 520px;
-        background: url("/src/lib/img/quest_logo.png") no-repeat center;
+        width: 35vw;
+        height: 45vh;
+        /*background: url("/src/lib/img/quest_logo.png") no-repeat;*/
+        /*background-size: cover;*/
+    }
+
+    .quest_wrapper .quest_image {
+        opacity: 1;
+        object-fit: contain;
+        transition: opacity 0.1 ease-in-out;
     }
 
     .quest_wrapper:hover {
-        transition-duration: 0.35s;
-        background: url("/src/lib/img/quest_logo.png") no-repeat center,
+        width: 100%;
+        transition-duration: 0.25s;
+        background:
         cadetblue url("/src/lib/img/de-line-3.png");
     }
 
-    .start_quest_button {
+    .quest_wrapper:hover .start_quest_button {
+        margin: auto;
+    }
+
+    .quest_wrapper:hover .quest_image {
         position: absolute;
-        top: 85%;
-        left: 20%;
+        opacity: 0;
+    }
+
+    .start_quest_button {
+        align-self: flex-end;
         opacity: 0.5;
-        width: 250px;
+        width: 35vw;
         height: 60px;
         background: #B9D28C;
         border: 1px solid #1C284D;
@@ -156,69 +191,184 @@
         border-bottom-right-radius: 10px;
     }
 
-    .author .book_image {
-        box-shadow: -1px 5px 15px 2px var(--background-pink);
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+    .author .book_image img {
+        height: 48vh;
+        object-fit: contain;
+
     }
 
-    @media (max-width: 480px) {
-        .info_wrapper {
-            min-height: 1200px;
-        }
-
-        .info_text {
-            text-align: left;
-        }
+    .author .info_text {
+        color: #ffffff;
     }
 
-    @media (min-width: 480px) and (max-width: 590px) {
-        .info_wrapper {
-            min-height: 900px;
-        }
+    .leni_cover {
+        object-fit: cover;
+        height: 38vh;
+        width: auto;
     }
 
-    @media (min-width: 591px) and (max-width: 1270px) {
-        .info_wrapper {
-            min-height: 800px;
-        }
+    .start_quest_button {
+        display: none;
     }
 
-    @media (max-width: 700px) {
-        .info_wrapper.quest {
-            align-items: flex-start;
+    .begin_button {
+        display: none;
+    }
+
+    .quest_wrapper:hover .begin_button {
+        display: block;
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        text-align: center;
+        position: relative;
+        padding: 30px 50px;
+        line-height: 30px;
+        color: #c5cd9ede;
+        text-transform: uppercase;
+        border: 1px dashed #c5cd9ede;
+        background-color: transparent;
+        cursor: pointer;
+        border-left-color: transparent;
+        border-right-color: transparent;
+    }
+
+    .begin_button:hover {
+        color: #8ACBD5;
+        border-color: #8ACBD5;
+        border-bottom-color: transparent;
+        border-top-color: transparent;
+    }
+
+    .quest_wrapper:hover .begin_button.glitch {
+        height: 45vh;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: transparent;
+        letter-spacing: 4px;
+        z-index: 1;
+    }
+
+    .quest_wrapper:hover .glitch:before,
+    .quest_wrapper:hover .glitch:after {
+        content: 'Начать усовершенствование';
+        display: block;
+        position: absolute;
+        top: 10vh;
+        opacity: 0.8;
+    }
+
+    .quest_wrapper:hover .glitch:before {
+        animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        color: #8ACBD5;
+        z-index: -1;
+    }
+
+    .quest_wrapper:hover .glitch:after {
+        animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+        color: #E998e3;
+        z-index: -2;
+    }
+
+    .quest_wrapper:hover .start_quest_button {
+        display: none;
+    }
+
+    @keyframes glitch-color {
+        0% {
+            transform: translate(0);
+        }
+
+        20% {
+            transform: translate(-2px, 1px);
+        }
+
+        40% {
+            transform: translate(-1px, -2px);
+        }
+
+        60% {
+            transform: translate(1px, 1px);
+        }
+
+        80% {
+            transform: translate(2px, -1px);
+        }
+
+        to {
+            transform: translate(0);
         }
     }
 
     @media (max-width: 1270px) {
         .info_wrapper {
-            padding: 15px 15px;
+            padding: 15px 30px;
+            height: auto;
+        }
+
+        .info_wrapper.quest {
+            padding: 15px 10px;
         }
 
         .info_wrapper.book .info_main {
             flex-direction: column-reverse;
         }
 
-        .quest_wrapper {
-            width: 280px;
-            background-size: cover;
-        }
-
-        .quest_wrapper:hover {
-            background: center/200% url("/src/lib/img/quest_logo.png") no-repeat, url("/src/lib/img/de-line-3.png");
-        }
-
-        .start_quest_button {
-            left: 4%;
-        }
-
         .info_main {
             flex-direction: column;
-            row-gap: 50px;
+            row-gap: 20px;
         }
 
         .author .info_main {
             flex-flow: column-reverse;
         }
+
+        .quest_wrapper:hover .begin_button.glitch {
+            font-size: 40px;
+        }
     }
+
+    @media (max-width: 1050px) {
+        .quest_wrapper:hover .begin_button.glitch {
+            font-size: 30px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .quest_wrapper {
+            width: 350px;
+            background-size: contain;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .info_wrapper.quest {
+            align-items: flex-start;
+        }
+
+        .quest_wrapper:hover .begin_button.glitch {
+            font-size: 25px;
+        }
+
+        .quest_wrapper:hover .begin_button.glitch {
+            padding: 0;
+            font-size: 15px;
+        }
+
+        .quest_wrapper {
+            width: 250px;
+            background-size: contain;
+        }
+    }
+
+    @media (min-width: 1300px) {
+        .info_text,
+        .author .info_text {
+            line-height: normal;
+            font-size: 20px;
+        }
+    }
+
 </style>

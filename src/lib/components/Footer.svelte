@@ -8,9 +8,9 @@
 
 <style>
     .footer {
-        margin-top: 50px;
+        margin-top: auto;
         width: 100%;
-        padding: 10px 0;
+        padding: 5px 0;
         background-color: #FFFFFF;
     }
 

@@ -5,5 +5,22 @@
     let type = "book";
 </script>
 
-<NavNew bind:type />
-<About bind:type />
+<div class="main_section_wrapper">
+    <NavNew bind:type />
+    <About bind:type />
+</div>
+
+<style>
+    .main_section_wrapper {
+        padding: 0 20px;
+        margin: auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 1270px) {
+        .main_section_wrapper {
+            overflow: scroll;
+        }
+    }
+</style>

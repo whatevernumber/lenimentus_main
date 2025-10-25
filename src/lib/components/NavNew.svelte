@@ -17,10 +17,6 @@
 </nav>
 
 <style>
-    .nav_block {
-        padding: 0 25px;
-    }
-
     .nav_list {
         display: flex;
         justify-content: space-between;
@@ -31,8 +27,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 180px;
-        height: 180px;
+        width: 13vw;
+        height: 13vw;
+        max-width: 100px;
+        max-height: 100px;
         cursor: pointer;
     }
 
@@ -58,7 +56,7 @@
         line-height: 24px;
         text-align: center;
         color: #FFFFFF;
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .menu_book.active {
@@ -74,19 +72,13 @@
 
     .menu_author.active {
         box-shadow: -1px 2px 15px 3px var(--background-pink);
-        border-top-right-radius: 5%;
+        /*border-top-right-radius: 5%;*/
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         .menu {
-            width: 90px;
-        }
-    }
-
-    @media (min-width: 768px) and (max-width: 1200px) {
-        .menu {
-            width: 120px;
-            height: 120px;
+            width: 22vw;
+            height: 22vw;
         }
     }
 </style>

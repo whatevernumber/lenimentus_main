@@ -10,6 +10,7 @@
 <style>
 
     .header_author {
+        margin-top: 5px;
         padding-right: 6px;
         font-size: 32px;
         color: white;
@@ -24,7 +25,7 @@
         padding-left: 5px;
         font-style: normal;
         font-weight: 400;
-        line-height: 137px;
+        line-height: 100px;
         color: #FFFFFF;
     }
 
