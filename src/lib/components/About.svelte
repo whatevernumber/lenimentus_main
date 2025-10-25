@@ -216,6 +216,7 @@
     }
 
     .quest_wrapper:hover .begin_button {
+        max-width: 800px;
         display: block;
         font-family: inherit;
         font-style: normal;
