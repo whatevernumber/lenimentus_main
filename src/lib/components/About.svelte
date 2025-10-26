@@ -119,10 +119,6 @@
         align-items: center;
     }
 
-    .book_image {
-        vertical-align: middle;
-    }
-
     .quest .info_main {
         column-gap: 0;
     }
@@ -300,8 +296,8 @@
     }
 
     @media (max-width: 1270px) {
-        .info_wrapper {
-            padding: 15px 30px;
+        .info_wrapper, .info_wrapper.author {
+            padding: 15px 20px;
         }
 
         .info_wrapper.quest {

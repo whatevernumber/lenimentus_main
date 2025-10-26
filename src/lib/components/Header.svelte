@@ -25,7 +25,6 @@
 </header>
 
 <style>
-
     .header_author {
         margin-top: 5px;
         padding-right: 6px;
