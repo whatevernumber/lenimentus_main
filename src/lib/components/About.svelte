@@ -1,11 +1,22 @@
 <script>
-    import {fade, fly} from "svelte/transition";
+    import {fade} from "svelte/transition";
+    import {preferredLanguage} from "$lib/stores/lang.js";
 
     export let type = "book";
 
-    const engMap = {
-        'ru': 'Начать усовершенствование',
-        'en': 'Commence improving',
+    const langMap = {
+        quest_button: {
+            ru: 'Начать Усовершенствование',
+            en: 'Begin Advancement',
+        },
+        author_info: {
+            ru: "Эл Фарбер — писательница и веб-разработчица из Мурманска, выросшая на произведениях таких мастеров фантастики, как А. Азимов, Г. Гаррисон, Ф. Дик, Дж. Уиндем и Р. Хайнлайн. Путешествия сквозь бесконечную Вселенную, тайны далёких миров и их обитателей, высокотехнологичное будущее и острые социальные проблемы, неотъемлемо шагающие сквозь пространство и время рука об руку с человечеством, вдохновили Фарбер на собственный роман. Первые наброски LENIMENTUS появились в школьные годы, десять лет спустя они были переработаны и развиты в полноценное социально-фантастическое произведение. LENIMENTUS — не только писательский дебют автора, но и личное внутреннее Усовершенствование.",
+            en: "L Farber is a hobbyist writer and web-developer from Murmansk. She was raised on the novels of such Sci-Fi masters as A. Asimov, H. Harrison, P. Dick, R. Heinlein. The vast universe, the mysteries of faraway worlds, the technology of the future and the social problems that inevitably follow it through time and space---these have inspired Farber to write her own novels. LENIMENTUS is not only the author's writing debut, but also a personal inner Advancement."
+        },
+        book_info: {
+            ru: "Рано или поздно это должно было случиться. Разработанная человеком сеть искусственных интеллектов, питавшая саму жизнь, обернулась против него. Планета была очищена и преобразована. Остатки человечества укрылись под энергетическим куполом неприступного «Квадрата Совета». Барьер надёжно защищает от угроз извне, но способен ли он уберечь порядок внутри? Есть ли у утративших самих себя людей право на то, чтобы вновь встать во главе мироздания, или их участь предрешена неумолимым Усовершенствованием?",
+            en: "It had to happen sooner or later. The Artificial Intelligence network, designed to power every little aspect of human life, has turned against its creators. The planet has been scoured and transformed. What has remained of humanity are now hiding underneath the dome of 'the Council's Square'. The dome is impenetrable for external threats, but can it maintain order and peace within? Do humans have a chance to restore their leading role in the world, or has their fate been decided by unyielding Advancement?"
+        }
     }
 </script>
 {#key type}
@@ -13,12 +24,8 @@
     <div class="info_wrapper {type}">
         <div class="info_main">
             {#if type === "book"}
-                <p class="info_text">Рано или поздно это должно было случиться. Разработанная человеком сеть
-                    искусственных интеллектов, питавшая саму жизнь, обернулась против него. Планета была очищена и
-                    преобразована. Остатки человечества укрылись под энергетическим куполом неприступного «Квадрата
-                    Совета». Барьер надёжно защищает от угроз извне, но способен ли он уберечь порядок внутри? Есть ли у
-                    утративших самих себя людей право на то, чтобы вновь встать во главе мироздания, или их участь
-                    предрешена неумолимым Усовершенствованием?
+                <p class="info_text">
+                    { langMap.book_info[$preferredLanguage] }
                 </p>
                 <div class="book_image">
                     <img class="leni_cover" src="img/book-3d.png" alt="LENIMENTUS">
@@ -30,25 +37,17 @@
                     <img class="quest_image" src="img/quest_logo.png">
 
                     <button class="start_quest_button">
-                        Начать усовершенствование
+                        { langMap.quest_button[$preferredLanguage] }
                     </button>
 
-                    <button class="begin_button glitch" on:click={() => window.location = 'http://quest.lenimentus.ru'}>
-                        Начать усовершенствование
+                    <button class="begin_button glitch" on:click={() => window.location = 'http://quest.lenimentus.ru'} style="--text: '{langMap.quest_button[$preferredLanguage]}'">
+                        { langMap.quest_button[$preferredLanguage] }
                     </button>
                 </div>
             {/if}
             {#if type === 'author'}
                 <p class="info_text">
-                    Эл Фарбер — писательница и веб-разработчица из Мурманска, выросшая на произведениях таких мастеров фантастики,
-                    как А. Азимов, Г. Гаррисон, Ф. Дик, Дж. Уиндем и Р. Хайнлайн.
-                    Путешествия сквозь бесконечную Вселенную, тайны далёких миров и их обитателей, высокотехнологичное
-                    будущее
-                    и острые социальные проблемы, неотъемлемо шагающие сквозь пространство и время рука об руку с
-                    человечеством, вдохновили Фарбер на собственный роман.
-                    Первые наброски LENIMENTUS появились в школьные годы, десять лет спустя они были переработаны и
-                    развиты в полноценное социально-фантастическое произведение.
-                    LENIMENTUS — не только писательский дебют автора, но и личное внутреннее Усовершенствование.
+                    { langMap.author_info[$preferredLanguage] }
                 </p>
                 <div class="book_image">
                     <img class="author_photo" src="img/farber.png" alt="LENIMENTUS">
@@ -251,7 +250,7 @@
 
     .quest_wrapper:hover .glitch:before,
     .quest_wrapper:hover .glitch:after {
-        content: 'Начать усовершенствование';
+        content: var(--text);
         display: block;
         position: absolute;
         top: 10vh;

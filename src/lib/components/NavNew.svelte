@@ -1,17 +1,30 @@
 <script>
+    import {preferredLanguage} from "$lib/stores/lang.js";
+
     export let type = 'book';
+
+    const langMap = {
+        about_book: {
+            ru: 'О книге',
+            en: 'Book'
+        },
+        about_author: {
+            ru: 'Об авторе',
+            en: 'Author',
+        }
+    }
 </script>
 
 <nav class="nav_block">
     <ul class="nav_list">
         <li class="menu menu_book {type === 'book' ? 'active' : ''}" on:click={() => type = 'book'} role="button">
-            <span>О книге</span>
+            <span>{langMap.about_book[$preferredLanguage]}</span>
         </li>
         <li class="menu menu_quest {type === 'quest' ? 'active' : ''}" on:click={() => type = 'quest'} role="button">
             <span>???</span>
         </li>
         <li class="menu menu_author {type === 'author' ? 'active' : ''}" on:click={() => type = 'author'} role="button">
-            <span>Об авторе</span>
+            <span>{langMap.about_author[$preferredLanguage]}</span>
         </li>
     </ul>
 </nav>
