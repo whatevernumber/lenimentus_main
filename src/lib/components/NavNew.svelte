@@ -1,5 +1,6 @@
 <script>
     import {preferredLanguage} from "$lib/stores/lang.js";
+    import {handleKey} from "$lib/utils/utils.js";
 
     export let type = 'book';
 
@@ -13,17 +14,21 @@
             en: 'Author',
         }
     }
+
+    const setType = (newType) => {
+        type = newType;
+    }
 </script>
 
 <nav class="nav_block">
     <ul class="nav_list">
-        <li class="menu menu_book {type === 'book' ? 'active' : ''}" on:click={() => type = 'book'} role="button">
+        <li class="menu menu_book {type === 'book' ? 'active' : ''}" on:keydown={(e) => handleKey(e, 'book', setType)} on:click={() => setType('book')} role="button" tabindex="2">
             <span>{langMap.about_book[$preferredLanguage]}</span>
         </li>
-        <li class="menu menu_quest {type === 'quest' ? 'active' : ''}" on:click={() => type = 'quest'} role="button">
+        <li class="menu menu_quest {type === 'quest' ? 'active' : ''}" on:keydown={(e) => handleKey(e, 'quest', setType)} on:click={() => setType('quest')} role="button" tabindex="2">
             <span>???</span>
         </li>
-        <li class="menu menu_author {type === 'author' ? 'active' : ''}" on:click={() => type = 'author'} role="button">
+        <li class="menu menu_author {type === 'author' ? 'active' : ''}" on:keydown={(e) => handleKey(e, 'author', setType)} on:click={() => setType('author')} role="button" tabindex="2">
             <span>{langMap.about_author[$preferredLanguage]}</span>
         </li>
     </ul>

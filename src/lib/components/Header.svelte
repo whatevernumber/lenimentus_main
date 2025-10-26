@@ -1,10 +1,12 @@
 <script>
     import { preferredLanguage } from '$lib/stores/lang.js';
+    import {handleKey} from "$lib/utils/utils.js";
 
     const setLanguage = (lang) => {
         localStorage.setItem('language', lang);
         preferredLanguage.set(lang);
     }
+
 </script>
 
 <header class="header">
@@ -14,10 +16,10 @@
     <section class="header_title">
         <h1 class="leni-h1">L E N I M E N T U S</h1>
         <div class="language_choice">
-            <div class="language_button { $preferredLanguage === 'ru' ? 'active' : ''}" on:click={() => setLanguage('ru')} role="button" tabindex="1">
+            <div class="language_button { $preferredLanguage === 'ru' ? 'active' : ''}" on:keydown={(e) => handleKey(e, 'ru', setLanguage)} on:click={() => setLanguage('ru')} role="button" tabindex="1">
                 ru
             </div>
-            <div class="language_button { $preferredLanguage === 'en' ? 'active' : ''}" on:click={() => setLanguage('en')} role="button" tabindex="2">
+            <div class="language_button { $preferredLanguage === 'en' ? 'active' : ''}" on:keydown={(e) => handleKey(e, 'en', setLanguage)} on:click={() => setLanguage('en')} role="button" tabindex="1">
                 en
             </div>
         </div>
