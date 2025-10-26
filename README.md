@@ -1,5 +1,5 @@
 # Lenimentus
 
-Landing for a sci-fi book.
+Landing page to promote a sci-fi book.
 
 ![readme.png](readme.png)
