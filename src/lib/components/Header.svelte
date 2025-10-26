@@ -56,7 +56,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        font-size: 35px;
+        font-size: 20px;
         font-weight: bold;
         text-transform: uppercase;
     }
@@ -66,7 +66,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
-        padding: 30px 40px;
+        padding: 10px 10px;
         cursor: pointer;
     }
 
@@ -78,12 +78,6 @@
         text-shadow: -1px -1px 0 var(--background-pink), 1px -1px 0 var(--background-pink), -1px 1px 0 var(--background-pink), 1px 1px 0 var(--background-pink);
     }
 
-    @media (max-width: 1270px) {
-        .language_button {
-            padding: 10px 10px;
-        }
-    }
-
     @media (max-width: 950px) {
         .header_title h1 {
             font-size: 40px;
@@ -93,10 +87,6 @@
     @media (max-width: 767px) {
         .header_title h1 {
             font-size: 25px;
-        }
-
-        .language_choice {
-            font-size: 20px;
         }
     }
 

@@ -15,7 +15,7 @@
         padding: 0 20px;
         margin: auto;
         width: 100%;
-        min-height: 50vh;
+        min-height: 70vh;
         box-sizing: border-box;
     }
 
