@@ -67,7 +67,7 @@
         display: flex;
         align-items: center;
         padding: 20px 50px;
-        height: 50vh;
+        min-height: 50vh;
     }
 
     /*.info_wrapper.book {*/
@@ -302,7 +302,6 @@
     @media (max-width: 1270px) {
         .info_wrapper {
             padding: 15px 30px;
-            height: auto;
         }
 
         .info_wrapper.quest {
@@ -338,6 +337,10 @@
             width: 350px;
             background-size: contain;
         }
+
+        /*.info_wrapper {*/
+        /*    padding-bottom: 120px;*/
+        /*}*/
     }
 
     @media (max-width: 800px) {

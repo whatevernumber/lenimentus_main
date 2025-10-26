@@ -36,6 +36,7 @@
         font-weight: 400;
         line-height: 39px;
         text-align:right;
+        text-shadow: -1px -1px 0 var(--background-blue),1px -1px 0 var(--background-pink);
     }
 
     .header_title {
@@ -50,6 +51,7 @@
         line-height: 100px;
         color: #FFFFFF;
         font-size: 65px;
+        text-shadow: -1px -1px 0 var(--background-blue),1px -1px 0 var(--background-pink),-1px 1px 0 var(--background-green),1px 1px 0 var(--background-green);
     }
 
     .language_choice {
@@ -70,12 +72,8 @@
         cursor: pointer;
     }
 
-    .language_button {
-        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-    }
-
     .language_button.active {
-        text-shadow: -1px -1px 0 var(--background-pink), 1px -1px 0 var(--background-pink), -1px 1px 0 var(--background-pink), 1px 1px 0 var(--background-pink);
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     }
 
     @media (max-width: 950px) {

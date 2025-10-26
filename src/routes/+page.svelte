@@ -29,4 +29,10 @@
             overflow-y: hidden;
         }
     }
+
+    @media (max-width: 1000px) {
+        .main_section_wrapper {
+            padding-bottom: 150px;
+        }
+    }
 </style>
