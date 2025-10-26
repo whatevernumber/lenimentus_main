@@ -71,21 +71,22 @@
         height: 50vh;
     }
 
-    .info_wrapper.book {
-        background-color: var(--background-green);
-        box-shadow: -1px 5px 15px 2px var(--background-green);
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
+    /*.info_wrapper.book {*/
+    /*    background-color: var(--background-green);*/
+    /*    box-shadow: -1px 5px 15px 2px var(--background-green);*/
+    /*    border-bottom-left-radius: 10px;*/
+    /*    border-bottom-right-radius: 10px;*/
+    /*}*/
 
     .info_wrapper.quest {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--background-blue);
-        box-shadow: -1px 5px 15px 2px var(--background-blue);
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        /*background-color: var(--background-blue);*/
+        /*box-shadow: -1px 5px 15px 2px var(--background-blue);*/
+        /*border-bottom-left-radius: 10px;*/
+        /*border-bottom-right-radius: 10px;*/
     }
 
     .info_wrapper.author {
@@ -103,7 +104,7 @@
         font-weight: 400;
         font-size: 22px;
         line-height: 27px;
-        color: #1b2645;
+        color: #ffffff;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
@@ -185,20 +186,16 @@
         opacity: 1;
     }
 
-    .book .book_image {
-        box-shadow: -1px 5px 15px 2px var(--background-green);
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
+    /*.book .book_image {*/
+        /*box-shadow: -1px 5px 15px 2px var(--background-green);*/
+        /*border-bottom-left-radius: 10px;*/
+        /*border-bottom-right-radius: 10px;*/
+    /*}*/
 
     .author .book_image img {
         height: 48vh;
         object-fit: contain;
 
-    }
-
-    .author .info_text {
-        color: #ffffff;
     }
 
     .leni_cover {

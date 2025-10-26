@@ -20,7 +20,12 @@
 
     @media (max-width: 1270px) {
         .main_section_wrapper {
-            overflow: scroll;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .main_section_wrapper:has(.quest) {
+            overflow-y: hidden;
         }
     }
 </style>
